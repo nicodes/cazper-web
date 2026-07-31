@@ -1,6 +1,6 @@
-# clearimg-web
+# cazper-web
 
-The splash page at [clearimg.ai](https://clearimg.ai). One static page.
+The splash page at [cazper.ai](https://cazper.ai). One static page.
 
 ```sh
 mise install
@@ -41,11 +41,11 @@ ones, so implementation notes in `index.astro` belong in the latter.
 
 ## The palette is the app's
 
-`#059669` and `#34D399` are the accents the clearimg app uses on light and dark
+`#059669` and `#34D399` are the accents the cazper app uses on light and dark
 backgrounds — the exact tokens from its theme. The site wears what the product
 wears rather than inventing a brand alongside it.
 
 ## Related
 
-- [app.clearimg.ai](https://app.clearimg.ai) — the application every call to action points at
-- `clearimg-be` — the API, the app, and the CLI (private)
+- [app.cazper.ai](https://app.cazper.ai) — the application every call to action points at
+- `cazper-be` — the API, the app, and the CLI (private)
