@@ -7,15 +7,15 @@ interface Props {
 }
 
 const {
-	title = 'clearimg — Transparent sprite assets',
+	title = 'cazper — Transparent sprite assets',
 	description = 'Sprite assets with a real alpha channel. Individual transparent PNGs from a prompt or your own sheet.',
 } = Astro.props;
-const canonical = new URL(Astro.url.pathname, 'https://clearimg.ai');
+const canonical = new URL(Astro.url.pathname, 'https://cazper.ai');
 const structuredData = {
 	'@context': 'https://schema.org',
 	'@type': 'SoftwareApplication',
-	name: 'clearimg',
-	url: 'https://clearimg.ai',
+	name: 'cazper',
+	url: 'https://cazper.ai',
 	applicationCategory: 'DesignApplication',
 	operatingSystem: 'Web, iOS, Android, Linux, macOS',
 	description,
@@ -33,7 +33,7 @@ const structuredData = {
 		<link rel="canonical" href={canonical} />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta property="og:type" content="website" />
-		<meta property="og:site_name" content="clearimg" />
+		<meta property="og:site_name" content="cazper" />
 		<meta property="og:title" content={title} />
 		<meta property="og:description" content={description} />
 		<meta property="og:url" content={canonical} />
