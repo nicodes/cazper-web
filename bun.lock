@@ -3,7 +3,7 @@
   "configVersion": 1,
   "workspaces": {
     "": {
-      "name": "clearimg-web",
+      "name": "cazper-web",
       "dependencies": {
         "@primer/octicons": "^19.29.2",
         "astro": "^5.18.1",

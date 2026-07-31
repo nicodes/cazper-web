@@ -2,23 +2,23 @@
 import Full from '../layouts/Full.astro';
 import octicons from '@primer/octicons';
 
-const appUrl = 'https://app.clearimg.ai';
+const appUrl = 'https://app.cazper.ai';
 const icon = (name: keyof typeof octicons, size = 16) =>
 	octicons[name].toSVG({ width: size, height: size });
 ---
 
 <Full
-	title="clearimg — Transparent sprite assets from a prompt"
+	title="cazper — Transparent sprite assets from a prompt"
 	description="Sprite assets with a real alpha channel. Individual transparent PNGs and a manifest, from a prompt or your own sheet."
 >
 	<div class="page-shell">
 		<header class="site-header">
-			<a class="brand" href="/" aria-label="clearimg home">
+			<a class="brand" href="/" aria-label="cazper home">
 				<svg class="brand-mark" viewBox="0 0 32 32" aria-hidden="true">
 					<path d="M16 3 28 10v12L16 29 4 22V10L16 3Z"></path>
 					<path d="M11 11h5v5h-5zM16 16h5v5h-5z"></path>
 				</svg>
-				<span>clearimg</span>
+				<span>cazper</span>
 			</a>
 			<a class="header-cta" href={appUrl}>Open app <span class="icon" set:html={icon('arrow-up-right', 14)} /></a>
 		</header>
@@ -29,12 +29,12 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 					<p class="eyebrow"><span></span> Prompt in, alpha out</p>
 					<h1>Real transparency, <em>not a cutout.</em></h1>
 					<p class="lede">
-						Every generator hands back artwork welded to its background. clearimg hands back the
+						Every generator hands back artwork welded to its background. cazper hands back the
 						same artwork with a real alpha channel — the soft edges, the glass and the glow still
 						there, instead of the halo a one-click cutout leaves behind.
 					</p>
 					<div class="hero-actions">
-						<a class="primary-cta" href={appUrl}>Launch clearimg <span class="icon" set:html={icon('arrow-right', 16)} /></a>
+						<a class="primary-cta" href={appUrl}>Launch cazper <span class="icon" set:html={icon('arrow-right', 16)} /></a>
 						<p>iOS · Android · Web · CLI</p>
 					</div>
 				</div>
@@ -46,7 +46,7 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 				    the output, unlike <!-- -->, and this file is served as-is. */}
 				<div class="product-frame" aria-label="artwork stuck on a white background, and the same artwork with real transparency">
 					<div class="frame-bar">
-						<div class="frame-brand"><span class="menu-lines"></span> clearimg / inventory-icons</div>
+						<div class="frame-brand"><span class="menu-lines"></span> cazper / inventory-icons</div>
 						<div class="frame-actions"><span class="icon" set:html={icon('image', 13)} /><span class="icon" set:html={icon('sparkle-fill', 13)} /></div>
 					</div>
 
@@ -91,13 +91,13 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 				</div>
 			</section>
 
-			<section class="principles" aria-label="How clearimg works">
+			<section class="principles" aria-label="How cazper works">
 				<article>
 					<span class="number">01</span>
 					<div>
 						<h2>Edges, not outlines</h2>
 						<p>
-							A cutout tool draws a boundary and calls everything inside it solid. clearimg keeps
+							A cutout tool draws a boundary and calls everything inside it solid. cazper keeps
 							the parts that were never solid — antialiased edges, glass, smoke, a glow that falls
 							off — so the sprite drops onto any background, not just the one it was born on.
 						</p>
@@ -108,7 +108,7 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 					<div>
 						<h2>A sheet comes back as assets</h2>
 						<p>
-							Generation returns a grid, not a file per icon. clearimg splits the sheet for you, so
+							Generation returns a grid, not a file per icon. cazper splits the sheet for you, so
 							what lands is <code>asset-001.png</code>, <code>asset-002.png</code>, and a
 							<code>manifest.json</code> saying where on the sheet each one came from.
 						</p>
@@ -132,7 +132,7 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 					<h2>Two ways in. One pipeline.</h2>
 					<p>
 						Describe what you want and the model draws it for you, or bring a sheet you already
-						have and clearimg works from that. Either way the same endpoint answers, and the
+						have and cazper works from that. Either way the same endpoint answers, and the
 						assets come back as separate files you can drop straight into a project.
 					</p>
 					<p class="aside">
@@ -144,21 +144,21 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 
 				<div class="product-frame wide">
 					<div class="frame-bar">
-						<div class="frame-brand"><span class="menu-lines"></span> clearimg / cli</div>
+						<div class="frame-brand"><span class="menu-lines"></span> cazper / cli</div>
 						<div class="frame-actions"><span class="icon" set:html={icon('terminal', 13)} /><span class="icon" set:html={icon('file-directory', 13)} /></div>
 					</div>
 					<div class="tui">
-						<pre><span class="cmd">$ clearimg prompt <span class="str">"fantasy inventory icons: potions, scrolls, keys, gems"</span></span>
-clearimg-out
+						<pre><span class="cmd">$ cazper prompt <span class="str">"fantasy inventory icons: potions, scrolls, keys, gems"</span></span>
+cazper-out
 
-<span class="cmd">$ find clearimg-out -type f | sort</span>
-clearimg-out/assets/asset-001.png
-clearimg-out/assets/asset-002.png
-clearimg-out/assets/asset-003.png
-clearimg-out/assets/asset-004.png
-clearimg-out/manifest.json
+<span class="cmd">$ find cazper-out -type f | sort</span>
+cazper-out/assets/asset-001.png
+cazper-out/assets/asset-002.png
+cazper-out/assets/asset-003.png
+cazper-out/assets/asset-004.png
+cazper-out/manifest.json
 
-<span class="cmd">$ jq <span class="str">'.assets[0] | &lbrace;name, file, size&rbrace;'</span> clearimg-out/manifest.json</span>
+<span class="cmd">$ jq <span class="str">'.assets[0] | &lbrace;name, file, size&rbrace;'</span> cazper-out/manifest.json</span>
 &lbrace;
   <span class="key">"name"</span>: <span class="str">"asset-001"</span>,
   <span class="key">"file"</span>: <span class="str">"assets/asset-001.png"</span>,
@@ -174,17 +174,17 @@ clearimg-out/manifest.json
 
 			<section class="closing">
 				<p>Describe it.<br />Ship the sprite.</p>
-				<div class="chain"><span>PROMPT</span><i></i><span>CLEARIMG</span><i></i><span>TRANSPARENT PNG</span></div>
+				<div class="chain"><span>PROMPT</span><i></i><span>CAZPER</span><i></i><span>TRANSPARENT PNG</span></div>
 				<div class="closing-actions">
-					<a class="primary-cta light" href={appUrl}>Open clearimg <span class="icon" set:html={icon('arrow-right', 16)} /></a>
+					<a class="primary-cta light" href={appUrl}>Open cazper <span class="icon" set:html={icon('arrow-right', 16)} /></a>
 				</div>
 			</section>
 		</main>
 
 		<footer>
-			<a class="brand footer-brand" href="/"><span>clearimg</span></a>
+			<a class="brand footer-brand" href="/"><span>cazper</span></a>
 			<p><a href={appUrl}>app</a></p>
-			<p>© {new Date().getFullYear()} clearimg</p>
+			<p>© {new Date().getFullYear()} cazper</p>
 		</footer>
 	</div>
 </Full>
