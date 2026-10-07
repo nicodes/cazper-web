@@ -11,12 +11,13 @@ Create and refine an image through a chat, then download one transparent PNG. Th
 Use the Bun version in `.mise.toml`.
 
 ```sh
-bun install --frozen-lockfile
-bun run dev
-bun run build
-bun run preview
+mise install
+mise exec -- make install
+mise exec -- make check
+mise exec -- make dev
+mise exec -- bun run preview
 ```
 
-Run `bun run typecheck` before building.
+`make check` installs frozen dependencies, type-checks before building, and verifies the generated HTML and absence of client JavaScript. `make test` checks an existing build. Stop the foreground development server with Ctrl-C; `make clean` removes generated output.
 
 The site is static and ships no client-side JavaScript. Existing CI validates the build and product-specific output contract.
