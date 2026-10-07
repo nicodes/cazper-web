@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-	title = 'cazper — Transparent sprite assets',
-	description = 'Sprite assets with a real alpha channel. Individual transparent PNGs from a prompt or your own sheet.',
+	title = 'cazper — Images with real transparency',
+	description = 'Create and refine an image through a conversation, then download one transparent PNG.',
 } = Astro.props;
 const canonical = new URL(Astro.url.pathname, 'https://cazper.ai');
 const structuredData = {
@@ -17,7 +17,7 @@ const structuredData = {
 	name: 'cazper',
 	url: 'https://cazper.ai',
 	applicationCategory: 'DesignApplication',
-	operatingSystem: 'Web, iOS, Android, Linux, macOS',
+	operatingSystem: 'Web',
 	description,
 };
 ---
@@ -44,5 +44,5 @@ const structuredData = {
 		<title>{title}</title>
 		<script is:inline type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
-	<body><slot /></body>
+	<body><a class="skip-link" href="#main-content">Skip to content</a><slot /></body>
 </html>
