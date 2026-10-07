@@ -8,8 +8,8 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 ---
 
 <Full
-	title="cazper — Transparent sprite assets from a prompt"
-	description="Sprite assets with a real alpha channel. Individual transparent PNGs and a manifest, from a prompt or your own sheet."
+	title="cazper — Make images with real transparency"
+	description="Create and refine images with a real alpha channel. Start with a prompt or image, keep the conversation going, and download one transparent PNG."
 >
 	<div class="page-shell">
 		<header class="site-header">
@@ -23,19 +23,15 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 			<a class="header-cta" href={appUrl}>Open app <span class="icon" set:html={icon('arrow-up-right', 14)} /></a>
 		</header>
 
-		<main>
+		<main id="main-content">
 			<section class="hero">
 				<div class="hero-copy">
 					<p class="eyebrow"><span></span> Prompt in, alpha out</p>
-					<h1>Real transparency, <em>not a cutout.</em></h1>
-					<p class="lede">
-						Every generator hands back artwork welded to its background. cazper hands back the
-						same artwork with a real alpha channel — the soft edges, the glass and the glow still
-						there, instead of the halo a one-click cutout leaves behind.
-					</p>
+					<h1>A little imagination.<em>Real transparency.</em></h1>
+					<p class="lede">Start with an idea or an image. Shape it through a conversation, then download a transparent PNG with the soft edges, glass and glow that make the artwork yours.</p>
 					<div class="hero-actions">
 						<a class="primary-cta" href={appUrl}>Launch cazper <span class="icon" set:html={icon('arrow-right', 16)} /></a>
-						<p>iOS · Android · Web · CLI</p>
+						<p>Create in your browser</p>
 					</div>
 				</div>
 
@@ -46,7 +42,7 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 				    the output, unlike <!-- -->, and this file is served as-is. */}
 				<div class="product-frame" aria-label="artwork stuck on a white background, and the same artwork with real transparency">
 					<div class="frame-bar">
-						<div class="frame-brand"><span class="menu-lines"></span> cazper / inventory-icons</div>
+						<div class="frame-brand"><span class="menu-lines"></span> cazper / transparency illustration</div>
 						<div class="frame-actions"><span class="icon" set:html={icon('image', 13)} /><span class="icon" set:html={icon('sparkle-fill', 13)} /></div>
 					</div>
 
@@ -76,104 +72,29 @@ const icon = (name: keyof typeof octicons, size = 16) =>
 
 					<div class="panes">
 						<figure class="pane on-white">
-							<svg viewBox="0 0 240 80"><use href="#sprites"></use></svg>
-							<figcaption>in</figcaption>
+							<svg viewBox="0 0 240 80" role="img" aria-label="Illustrated potion, gem and key with partially transparent edges"><use href="#sprites"></use></svg>
+							<figcaption>white background</figcaption>
 						</figure>
 						<figure class="pane on-alpha">
-							<svg viewBox="0 0 240 80"><use href="#sprites"></use></svg>
-							<figcaption>out</figcaption>
+							<svg viewBox="0 0 240 80" role="img" aria-label="Illustrated potion, gem and key with partially transparent edges"><use href="#sprites"></use></svg>
+							<figcaption>alpha illustration</figcaption>
 						</figure>
 					</div>
 
 					<div class="frame-keys">
-						<span>in</span> a prompt or a sheet<i></i><span>out</span> transparent PNGs + manifest
+						<span>in</span> a prompt or image<i></i><span>out</span> one transparent PNG
 					</div>
 				</div>
 			</section>
 
-			<section class="principles" aria-label="How cazper works">
-				<article>
-					<span class="number">01</span>
-					<div>
-						<h2>Edges, not outlines</h2>
-						<p>
-							A cutout tool draws a boundary and calls everything inside it solid. cazper keeps
-							the parts that were never solid — antialiased edges, glass, smoke, a glow that falls
-							off — so the sprite drops onto any background, not just the one it was born on.
-						</p>
-					</div>
-				</article>
-				<article>
-					<span class="number">02</span>
-					<div>
-						<h2>A sheet comes back as assets</h2>
-						<p>
-							Generation returns a grid, not a file per icon. cazper splits the sheet for you, so
-							what lands is <code>asset-001.png</code>, <code>asset-002.png</code>, and a
-							<code>manifest.json</code> saying where on the sheet each one came from.
-						</p>
-					</div>
-				</article>
-				<article>
-					<span class="number">03</span>
-					<div>
-						<h2>Every client is thin</h2>
-						<p>
-							The app and the CLI post an image or a prompt and receive a zip. The API does all of
-							the work, so nothing about what you get back changes because you switched device.
-						</p>
-					</div>
-				</article>
-			</section>
-
-			<section class="clients-section" aria-label="Ways in">
-				<div class="section-head">
-					<p class="eyebrow"><span></span> Prompt or sheet</p>
-					<h2>Two ways in. One pipeline.</h2>
-					<p>
-						Describe what you want and the model draws it for you, or bring a sheet you already
-						have and cazper works from that. Either way the same endpoint answers, and the
-						assets come back as separate files you can drop straight into a project.
-					</p>
-					<p class="aside">
-						The app runs on iOS, Android and the web from one codebase and keeps a library of what
-						it made. The CLI writes to a directory and prints where it put it, which is the version
-						a build script wants.
-					</p>
-				</div>
-
-				<div class="product-frame wide">
-					<div class="frame-bar">
-						<div class="frame-brand"><span class="menu-lines"></span> cazper / cli</div>
-						<div class="frame-actions"><span class="icon" set:html={icon('terminal', 13)} /><span class="icon" set:html={icon('file-directory', 13)} /></div>
-					</div>
-					<div class="tui">
-						<pre><span class="cmd">$ cazper prompt <span class="str">"fantasy inventory icons: potions, scrolls, keys, gems"</span></span>
-cazper-out
-
-<span class="cmd">$ find cazper-out -type f | sort</span>
-cazper-out/assets/asset-001.png
-cazper-out/assets/asset-002.png
-cazper-out/assets/asset-003.png
-cazper-out/assets/asset-004.png
-cazper-out/manifest.json
-
-<span class="cmd">$ jq <span class="str">'.assets[0] | &lbrace;name, file, size&rbrace;'</span> cazper-out/manifest.json</span>
-&lbrace;
-  <span class="key">"name"</span>: <span class="str">"asset-001"</span>,
-  <span class="key">"file"</span>: <span class="str">"assets/asset-001.png"</span>,
-  <span class="key">"size"</span>: [ <span class="num">384</span>, <span class="num">384</span> ]
-&rbrace;
-<span class="cur">▍</span></pre>
-					</div>
-					<div class="frame-keys">
-						<span>--sheet</span> one packed PNG<i></i><span>--out</span> where it lands<i></i><span>--api</span> point it anywhere
-					</div>
-				</div>
-			</section>
-
+<section class="principles" aria-label="Make it your own">
+<article><span class="number">01</span><div><h2>Begin anywhere</h2><p>Describe the image you have in mind, or bring an image to work from. A prompt and an upload are both ways to start.</p></div></article>
+<article><span class="number">02</span><div><h2>Keep the conversation going</h2><p>Ask for a change in the same chat. Follow-up prompts edit the latest image, so you can refine it one step at a time.</p></div></article>
+<article><span class="number">03</span><div><h2>Take the PNG with you</h2><p>Download one image with a real alpha channel, ready to place over your own background. Your successful image chats stay in your library.</p></div></article>
+</section>
+<section class="clients-section" aria-label="A conversation with your image"><div class="section-head"><p class="eyebrow"><span></span> CREATE · REFINE · DOWNLOAD</p><h2>Your next image starts with a conversation.</h2><p>Work from a new prompt, build on an image, or return to something in your library. The gallery gives you another place to explore what’s been made.</p><p class="aside">The illustration above demonstrates partial transparency; it is not a captured product result.</p><a class="primary-cta" href={appUrl}>Start an image <span class="icon" set:html={icon('arrow-right', 16)} /></a></div></section>
 			<section class="closing">
-				<p>Describe it.<br />Ship the sprite.</p>
+				<p>Imagine it.<br />Make it yours.</p>
 				<div class="chain"><span>PROMPT</span><i></i><span>CAZPER</span><i></i><span>TRANSPARENT PNG</span></div>
 				<div class="closing-actions">
 					<a class="primary-cta light" href={appUrl}>Open cazper <span class="icon" set:html={icon('arrow-right', 16)} /></a>
@@ -258,13 +179,6 @@ cazper-out/manifest.json
 	.section-head p { margin: 0 0 14px; color: var(--quiet); font-size: 15px; line-height: 1.7; }
 	.section-head .aside { max-width: 580px; color: #7c7c85; font-size: 13.5px; }
 	.product-frame.wide { min-width: 0; width: 100%; max-width: 100%; transform: none; }
-	.tui { background: #0a0c0b; padding: 18px 20px; overflow-x: auto; }
-	.tui pre { margin: 0; color: #d4d4d8; font: 11.5px/1.75 var(--mono); }
-	.tui .cmd { color: #fafafa; }
-	.tui .str { color: #a5d8b6; }
-	.tui .key { color: var(--emerald); }
-	.tui .num { color: #ffd43b; }
-	.cur { display: inline-block; width: 6px; height: 12px; background: var(--emerald); vertical-align: middle; animation: blink 1.2s step-end infinite; }
 
 	.closing { width: min(1180px, calc(100% - 40px)); margin: 0 auto; border-radius: 8px; background: var(--ink); color: white; padding: 65px; }
 	.closing > p { max-width: 680px; margin: 0 0 50px; font-size: clamp(42px, 6vw, 72px); font-weight: 530; line-height: .98; letter-spacing: -.055em; }
@@ -304,8 +218,6 @@ cazper-out/manifest.json
 		.pane { padding: 14px 40px 14px 14px; }
 		.pane figcaption { right: 10px; font-size: 7.5px; letter-spacing: .1em; }
 		.frame-keys { padding: 7px 12px; font-size: 8.5px; }
-		.tui { padding: 14px; }
-		.tui pre { font-size: 9px; line-height: 1.7; }
 		.section-head { margin-bottom: 28px; }
 		.principles article { grid-template-columns: 42px 1fr; padding: 26px 0; }
 		.principles h2 { font-size: 19px; }
@@ -318,4 +230,41 @@ cazper-out/manifest.json
 		.footer-brand { display: none; }
 		footer p:nth-child(2) { text-align: left; }
 	}
+
+
+/* A lightbox for artwork: rounded, generous, with the alpha comparison as the centerpiece. */
+.hero { grid-template-columns: 1fr; text-align: center; margin: 80px auto 96px; gap: 56px; }
+.hero-copy { max-width: 900px; margin: auto; }
+.eyebrow { justify-content: center; color: #08734f; }
+h1 { max-width: 900px; font-size: clamp(54px, 7.8vw, 104px); font-weight: 750; line-height: 1.03; letter-spacing: -.06em; }
+h1 em { font-family: var(--sans); font-style: normal; color: #08734f; }
+.lede { max-width: 650px; margin: 28px auto; font-size: 18px; }
+.hero-actions { justify-content: center; flex-wrap: wrap; }
+.hero-actions p { color: #52525b; }
+.primary-cta { border-radius: 100px; background: #08734f; padding: 17px 25px; }
+.primary-cta:hover { background: #065f46; }
+.product-frame { min-width: 0; width: 100%; border-radius: 24px; transform: none; box-shadow: 0 18px 60px #18181b12; }
+.product-frame::before { display: none; }
+.panes { display: grid; grid-template-columns: 1fr 1fr; }
+.pane + .pane { border-left: 1px solid #d4d4d8; border-top: 0; }
+.pane { height: 300px; margin: 0; }
+.pane svg { width: 88%; height: 225px; }
+.frame-bar { height: 48px; background: #fafafa; }
+.principles { border: 0; display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 28px; }
+.principles article { display: block; padding: 28px; border: 0; background: white; border-radius: 20px; }
+.principles article div { display: block; }
+.number { display: inline-block; margin-bottom: 24px; font-size: 14px; color: #08734f; }
+.principles h2 { font-size: 23px; margin-bottom: 15px; }
+.clients-section { grid-template-columns: 1fr 1.2fr; align-items: center; gap: 60px; }
+.closing { text-align: center; border-radius: 28px; background: #d7f5e5; color: #073d2b; }
+.closing > p { max-width: none; font-weight: 700; }
+.chain, .closing-actions { justify-content: center; }
+.chain { color: #27604c; }
+@media (max-width: 900px) { .principles { grid-template-columns: 1fr; gap: 12px; } .clients-section { grid-template-columns: 1fr; gap: 30px; } }
+@media (max-width: 600px) { .hero { margin-top: 45px; gap: 35px; } h1 { font-size: 48px; } .lede { font-size: 16px; } .hero-actions { align-items: center; } .panes { grid-template-columns: 1fr; } .pane + .pane { border-left: 0; border-top: 1px solid #d4d4d8; } .pane { height: 250px; } .pane svg { height: 190px; } .closing { padding: 40px 20px; } }
+
+
+.clients-section .eyebrow { justify-content: flex-start; }
+
+footer, footer a { color: #59636a; }
 </style>
