@@ -22,3 +22,19 @@ updates:
         update-types:
           - minor
           - patch
+  # Bun's text lockfile needs the Bun ecosystem, rather than npm inference.
+  - package-ecosystem: bun
+    directory: /
+    schedule:
+      interval: weekly
+      day: monday
+      time: '13:53'
+      timezone: Etc/UTC
+    open-pull-requests-limit: 5
+    groups:
+      bun-minor-patch:
+        patterns:
+          - '*'
+        update-types:
+          - minor
+          - patch
