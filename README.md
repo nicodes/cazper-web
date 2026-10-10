@@ -1,5 +1,7 @@
 # cazper website
 
+Deprecated. Spritesmith is the maintained successor: [app.spritesmith.ai](https://app.spritesmith.ai), with the public [API client](https://github.com/aviorstudio/spritesmith).
+
 Static Astro landing page for [cazper](https://cazper.ai).
 
 Primary destination: [cazper](https://app.cazper.ai).
